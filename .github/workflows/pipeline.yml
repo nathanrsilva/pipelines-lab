@@ -1,4 +1,5 @@
-name: "Estrutura de diretorios e arquivos"
+# nome do workflow
+name: Estrutura de diretorios e arquivos
 
 on: 
     push:
@@ -10,19 +11,19 @@ env:
 
 jobs:
     demonstrando-estrutura:
-        name: 'Demonstrar estrutura basica'
+        # nome do job
+        name: Demonstrar estrutura basica
         runs-on: ubuntu-latest
 
         steps:
-            - name: 'Checkout do codigo'
+            - name: Checkout do codigo
               # baixa o codigo do github para dentro da maquina ubuntu   
               uses: actions/checkout@v4
 
-            - name: 'Mostrar estrutura .github/workflows'
+            - name: Mostrar estrutura .github/workflows
               run: |
                 echo " == ESTRUTURA DE DIRETORIOS E ARQUIVOS .github/workflows == "
                 ls -la .github/workflows
-                echo ""
                 echo " Total de workflows(contagem arquivos): $(ls -1 .github/workflows | wc -l)"
             
             - name: Elementos obrigatorios do workflow
