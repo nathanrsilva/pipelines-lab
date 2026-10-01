@@ -1,0 +1,32 @@
+name: Colocando em pratica e testando
+
+on:
+    push:
+        branches: [main]
+    workflow_dispatch:
+
+env:
+    USER_NAME: 'nathan123'
+    USER_AGE: '21'
+
+jobs:
+    creeper:
+        name: Creeper e muito sorrateiro
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout do codigo
+              uses: actions/checkout@v6
+            
+            - name: Lista diretorios atuais
+              run: ls -l
+
+    zombie:
+        name: Zombie e forte
+        runs-on: ubuntu-latest
+        steps:
+            - name: Cria o arquivo minecraft.txt
+              run: |
+                echo "Minecraft e um jogo de sobrevivencia, de mundo aberto" > minecraft.txt
+                cat minecraft.txt
+                echo "Valor da minha variavel: Name: ${{env.USER_NAME}}, Age: ${{env.USER_AGE}}"
+    
