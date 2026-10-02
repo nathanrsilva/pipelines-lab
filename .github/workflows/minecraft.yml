@@ -18,7 +18,21 @@ jobs:
               uses: actions/checkout@v6
             
             - name: Lista diretorios atuais
-              run: ls -l ./
+              run: |
+               echo ' === Diretorio atual de trabalho === '
+               pwd
+
+               echo ' === Conteudo da raiz'
+               ls -la
+
+               echo ' === Estrutura em arvore'
+               tree -L 2
+
+               echo ' === Tentando dar cd no / === '
+               cd /
+
+               echo ' === Tentando dar o comando ls -la ==='
+               ls -la
 
     zombie:
         name: Zombie e forte
