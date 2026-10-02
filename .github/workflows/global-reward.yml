@@ -20,6 +20,7 @@ jobs:
         run: |
           echo "${{env.APP_NODE}}"
           echo "$LOCAL_FLAG"
+          echo "APP_NODE: ${{env.APP_NODE}}, LOCAL_FLAG: $LOCAL_FLAG"
       - name: Usando condicao
         if: github.event_name == 'push'
         run: echo 'Rodando apenas no push'
