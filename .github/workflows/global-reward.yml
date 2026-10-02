@@ -9,7 +9,7 @@ on:
   workflow_dispatch: 
 
 jobs:
-  build:
+  condicao_variaveis:
     runs-on: ubuntu-latest
     env: 
       APP_NODE: test
@@ -25,4 +25,18 @@ jobs:
       - name: Usando condicao
         if: github.event_name == 'push'
         run: echo 'Rodando apenas no push'
+  bem_custom:
+    runs-on: ubuntu-latest
+    env: 
+      ADMIN_USER: nathanael
+    steps:
+      - name: Log de algumas variaveis
+        run: |
+          echo "${{env.ADMIN_USER}}, dono do repositorio ${{github.repository_owner}}
+          
+      - name: executar somente com workflow_dispatch
+        if: github.event_name == 'workflow_dispatch'
+        run: echo "fds"
+      
+    
     
