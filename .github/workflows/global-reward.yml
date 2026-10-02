@@ -1,0 +1,24 @@
+name: Lets win that bro
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch: 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env: 
+      APP_NODE: test
+    steps:
+      - name: Impressao de variaveis
+        env:
+          LOCAL_FLAG: enabled
+        run: echo '${{env.APP_NODE}} / $LOCAL_FLAG'
+      - name: Usando condicao
+        if: github.event_name == 'push'
+        run: echo 'Rodando apenas no push'
+    
