@@ -43,4 +43,11 @@ jobs:
                 echo "Minecraft e um jogo de sobrevivencia, de mundo aberto" > minecraft.txt
                 cat minecraft.txt
                 echo "Valor da minha variavel: Name: ${{env.USER_NAME}}, Age: ${{env.USER_AGE}}"
+            - name: Dando um ls no job zombie
+              run: |
+                echo " === Diretorio atual === "
+                pwd
+
+                echo " === Dando o comando ls ==="
+                ls -la
     
